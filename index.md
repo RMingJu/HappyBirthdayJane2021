@@ -1,37 +1,119 @@
-## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/RMingJu/HappyBirthdayJane2021/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Happy Birthday To U</title>
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+<style type="text/css">
+@font-face {
+	font-family: digit;
+	src: url('digital-7_mono.ttf') format("truetype");
+}
+</style>
 
-### Markdown
+<style>
+    body{margin:0;padding:0;background:#ffe;font-size:12px;overflow:auto}
+    #mainDiv{width:100%;height:100%}
+    #loveHeart{float:left;width:670px;height:625px}
+    #garden{width:100%;height:100%}
+    #elapseClock{text-align:right;font-size:18px;margin-top:10px;margin-bottom:10px}
+    #words{font-family:"sans-serif";width:500px;font-size:24px;color:#666}
+    #messages{display:none}
+    #elapseClock .digit{font-family:"digit";font-size:36px}
+    #loveu{padding:5px;font-size:22px;margin-top:80px;margin-right:120px;text-align:right;display:none}
+    #loveu .signature{margin-top:10px;font-size:20px;font-style:italic}
+    #clickSound{display:none}
+    #code{float:left;width:440px;height:400px;color:#333;font-family:"Consolas","Monaco","Bitstream Vera Sans Mono","Courier New","sans-serif";font-size:12px}
+    #code .string{color:#2a36ff}
+    #code .keyword{color:#7f0055;font-weight:bold}
+    #code .placeholder{margin-left:15px}#code .space{margin-left:7px}
+    #code .comments{color:#3f7f5f}
+    #copyright{margin-top:10px;text-align:center;width:100%;color:#666}
+    #errorMsg{width:100%;text-align:center;font-size:24px;position:absolute;top:100px;left:0}
+    #copyright a{color:#666}
+</style>
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/garden.js"></script>
+<script type="text/javascript" src="js/functions.js"></script>
 
-```markdown
-Syntax highlighted code block
+</head>
 
-# Header 1
-## Header 2
-### Header 3
+<body>
+<div style="text-align:center;clear:both;">
+<script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>
+<script src="/follow.js" type="text/javascript"></script>
+</div>
+<div id="mainDiv">
+	<div id="content">
+		<div id="code">
+			<span class="comments">/*</span><br />
+			<span class="space"/><span class="comments">*2020—02-01,</span><br />
+			<span class="space"/><span class="comments">*2021-03-25.</span><br />
+			<span class="space"/><span class="comments">*/</span><br />
+			<span class="keyword">String</span> 🐷 = <span class="comments">"Mark béo"</span>;<br />
+			<span class="keyword">String</span> ❤ = <span class="comments">"Love"</span>;<br />
+			<span class="keyword">String</span> 🐯 = <span class="comments">"Jane thối"</span>;<br />
 
-- Bulleted
-- List
+			for (<span class="keyword">int</span> <span class="string">i</span>=0; 
+			<span class="string">i</span><=<span class="string">Date</span>() ; 
+			<span class="string">i</span>++)<br>
+			{<br>
+				<span class="placeholder"/><span class="string">print</span>(🐷,❤,🐯)<br>
+			}<br>
+			
+			<br>
+		</div>
+		<div id="loveHeart">
+			<canvas id="garden"></canvas>
+			<div id="words">
+				<div id="messages">
+					親愛的，生日快樂!
+					<div id="elapseClock"></div>
+				</div>
+				<div id="loveu">
+					爱你直到永永遠遠。<br/>
+					<div class="signature">- 明洲</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
-1. Numbered
-2. List
+<script type="text/javascript">
+var offsetX = $("#loveHeart").width() / 2;
+var offsetY = $("#loveHeart").height() / 2 - 55;
+var together = new Date();
+together.setFullYear(2020, 2, 01);
+together.setHours(20);
+together.setMinutes(0);
+together.setSeconds(0);
+together.setMilliseconds(0);
 
-**Bold** and _Italic_ and `Code` text
+if (!document.createElement('canvas').getContext) {
+	var msg = document.createElement("div");
+	msg.id = "errorMsg";
+	msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+	document.body.appendChild(msg);
+	$("#code").css("display", "none")
+	$("#copyright").css("position", "absolute");
+	$("#copyright").css("bottom", "10px");
+	document.execCommand("stop");
+} else {
+	setTimeout(function () {
+		startHeartAnimation();
+	}, 5000);
 
-[Link](url) and ![Image](src)
-```
+	timeElapse(together);
+	setInterval(function () {
+		timeElapse(together);
+	}, 500);
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+	adjustCodePosition();
+	$("#code").typewriter();
+}
+</script>
 
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/RMingJu/HappyBirthdayJane2021/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+</body>
+</html>
